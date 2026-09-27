@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/questions', [ApiController::class, 'index']);
 Route::post('/questions', [ApiController::class, 'store']);
-Route::put('/questions/{id}', [ApiController::class, 'edit']);
+Route::put('/questions/{id}', [ApiController::class, 'update']);
 Route::delete('/questions/{id}', [ApiController::class, 'destroy']);
 
 
