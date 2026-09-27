@@ -1,0 +1,164 @@
+/*
+ * Charte graphique de Culture Quiz.
+ * Tout est défini ici sous forme de variables CSS pour rester cohérent d'une
+ * page à l'autre. Les styles sont écrits en mobile first : les règles de base
+ * ciblent le téléphone, les media queries élargissent ensuite la mise en page.
+ */
+
+:root {
+  /* Couleurs */
+  --color-bg: #12102b;
+  --color-bg-soft: #1b1740;
+  --color-surface: #241f4d;
+  --color-surface-strong: #2e2860;
+  --color-primary: #7c5cff;
+  --color-primary-dark: #4b2fd6;
+  --color-accent: #ffc857;
+  --color-correct: #2ecc71;
+  --color-wrong: #e74c3c;
+  --color-text: #f4f2ff;
+  --color-text-muted: #b3adda;
+
+  /* Typographie */
+  --font-title: 'Baloo 2', 'Trebuchet MS', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Espacements et rayons */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 2rem;
+
+  /* Ombres */
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+  /* Largeur maximale du contenu (l'app reste « mobile » sur grand écran) */
+  --content-width: 540px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(124, 92, 255, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 100%, rgba(255, 200, 87, 0.18), transparent 45%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  line-height: 1.15;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Mise en page commune à toutes les pages */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: var(--content-width);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md) calc(var(--space-xl) + env(safe-area-inset-bottom));
+}
+
+/* Bouton principal de la charte */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  min-height: 3.25rem;
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.button:hover {
+  filter: brightness(1.08);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button--ghost {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: none;
+  color: var(--color-text-muted);
+}
+
+/* Accessibilité : focus visible au clavier */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Respect de la préférence « moins d'animations » */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* À partir de la tablette : un peu plus d'air, contenu toujours centré */
+@media (min-width: 768px) {
+  :root {
+    --content-width: 620px;
+  }
+
+  .page {
+    padding-top: var(--space-xl);
+  }
+}

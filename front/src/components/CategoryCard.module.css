@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  min-height: 4rem;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  background: var(--color-surface-strong);
+}
+
+.card:active {
+  transform: scale(0.985);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-sm);
+  background: rgba(124, 92, 255, 0.25);
+  font-size: 1.4rem;
+}
+
+.name {
+  flex: 1;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Une majuscule sur la première lettre seulement, même si la catégorie a été
+   saisie en minuscules dans le back-office (`capitalize` en mettrait une à
+   chaque mot : « Sciences Et Nature »). */
+.name::first-letter {
+  text-transform: uppercase;
+}
+
+.chevron {
+  color: var(--color-text-muted);
+  font-size: 1.8rem;
+  line-height: 1;
+}

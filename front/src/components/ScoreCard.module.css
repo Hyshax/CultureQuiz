@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xl) var(--space-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.emoji {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.score {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  font-family: var(--font-title);
+}
+
+.scoreValue {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.scoreTotal {
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.detail {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* Seule la première lettre du nom de la catégorie prend une majuscule. */
+.detailCategorie {
+  color: var(--color-text);
+}
+
+.detailCategorie::first-letter {
+  text-transform: uppercase;
+}
